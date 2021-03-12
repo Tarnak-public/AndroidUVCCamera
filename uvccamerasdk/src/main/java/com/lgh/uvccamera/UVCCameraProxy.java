@@ -55,7 +55,7 @@ public class UVCCameraProxy implements IUVCCamera {
     protected CompositeSubscription mSubscriptions;
     private CameraConfig mConfig; // 相机相关配置
     protected float mPreviewRotation; // 相机预览旋转角度
-    protected boolean isTakePhoto; // 是否拍照
+    protected boolean isTakePhoto = false; // 是否拍照
     private String mPictureName; // 图片名称
 
     public UVCCameraProxy(Context context) {
@@ -65,7 +65,7 @@ public class UVCCameraProxy implements IUVCCamera {
         mSubscriptions = new CompositeSubscription();
     }
 
-    /**
+    /**Find target camera device
      * 注册usb插拔监听广播
      */
     @Override

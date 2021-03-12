@@ -70,7 +70,8 @@ public class UVCCameraActivity extends AppCompatActivity {
             }
         });
     }
-
+//2021-03-12 08:42:35.845 5468-5468/com.lgh.test I/uvc_camera:UsbMonitor.requestPermission(L:78): requestPermission-->UsbDevice[mName=/dev/bus/usb/001/004,mVendorId=5546,mProductId=5461,mClass=239,mSubclass=2,mProtocol=1,mManufacturerName=SIT USB2.0 Camera Mono,mProductName=SIT USB2.0 Camera Mono,mVersion=2.0,mSerialNumber=01.00.00        ,mConfigurations=[
+//2021-03-12 08:42:35.850 5468-5468/com.lgh.test I/uvc_camera:UsbMonitor.connectDevice(L:91): connectDevice-->UsbDevice[mName=/dev/bus/usb/001/004,mVendorId=5546,mProductId=5461,mClass=239,mSubclass=2,mProtocol=1,mManufacturerName=SIT USB2.0 Camera Mono,mProductName=SIT USB2.0 Camera Mono,mVersion=2.0,mSerialNumber=01.00.00        ,mConfigurations=[
     private void initUVCCamera() {
         mUVCCamera = new UVCCameraProxy(this);
         // 已有默认配置，不需要可以不设置
@@ -83,7 +84,7 @@ public class UVCCameraActivity extends AppCompatActivity {
         mUVCCamera.setPreviewTexture(mTextureView);
 //        mUVCCamera.setPreviewSurface(mSurfaceView);
 //        mUVCCamera.registerReceiver();
-
+        mUVCCamera.setPreviewRotation(90);
         mUVCCamera.setConnectCallback(new ConnectCallback() {
             @Override
             public void onAttached(UsbDevice usbDevice) {
